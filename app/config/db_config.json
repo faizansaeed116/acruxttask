@@ -1,0 +1,107 @@
+{
+    "DB": [
+        {
+            "CONNNAME": "ORACLEDB",
+            "CLIENT": "oracledb",
+            "USER": "crm",
+            "PASSWORD": "Finca931",
+            "IP": "209.126.77.121",
+            "PORT": "1521",
+            "SERVICENAME": "dbcrm",
+            "DB": "dbcrm",
+            "EXTERNALAUTH": false,
+            "POOLMIN": 2,
+            "POOLMAX": 100,
+            "POOLTIMEOUT": 10,
+            "QUEUETIMEOUT": 10000,
+            "ORA_SDTZ": "UTC",
+            "FORMATS": {
+                "DATETIME": "DD-MMM-YY hh:mm:ss A",
+                "DATE": "DD-MMM-YY",
+                "TIME": "hh:mm:ss A"
+            }
+        },
+        {
+            "CONNNAME": "MYSQLDB-DEV-SERVER",
+            "CLIENT": "mysql2",
+            "VERSION": "5.6",
+            "USER": "root",
+            "PASSWORD": "qw123",
+            "IP": "localhost",
+            "PORT": "",
+            "DB": "etiop",
+            "POOLMIN": 2,
+            "POOLMAX": 100,
+            "POOLTIMEOUT": 10,
+            "FORMATS": {
+                "DATETIME": "YYYY-MM-DD HH:mm:ss",
+                "DATE": "YYYY-MM-DD",
+                "TIME": "HH:mm:ss"
+            },
+            "ACTIVE": true
+        },
+        {
+            "CONNNAME": "MYSQLDB-LOCAL-SERVER",
+            "CLIENT": "mysql2",
+            "VERSION": "5.6",
+            "USER": "root",
+            "PASSWORD": "root",
+            "IP": "localhost",
+            "PORT": "",
+            "DB": "crm",
+            "POOLMIN": 2,
+            "POOLMAX": 100,
+            "POOLTIMEOUT": 10,
+            "FORMATS": {
+                "DATETIME": "YYYY-MM-DD HH:mm:ss",
+                "DATE": "YYYY-MM-DD",
+                "TIME": "HH:mm:ss"
+            }
+        },
+        {
+            "CONNNAME": "MYSQLDB-DEV",
+            "CLIENT": "mysql2",
+            "VERSION": "8.0.19",
+            "USER": "crm_usr",
+            "PASSWORD": "Finca@931",
+            "IP": "localhost",
+            "PORT": "",
+            "DB": "crm",
+            "POOLMIN": 2,
+            "POOLMAX": 100,
+            "POOLTIMEOUT": 10,
+            "FORMATS": {
+                "DATETIME": "YYYY-MM-DD HH:mm:ss",
+                "DATE": "YYYY-MM-DD",
+                "TIME": "HH:mm:ss"
+            }
+        },
+        {
+            "CONNNAME": "MYSQLDB-PROD",
+            "CLIENT": "mysql2",
+            "VERSION": "8.0.19",
+            "USER": "crm_usr",
+            "PASSWORD": "Finca@931",
+            "IP": "localhost",
+            "PORT": "",
+            "DB": "crm_prod",
+            "POOLMIN": 2,
+            "POOLMAX": 100,
+            "POOLTIMEOUT": 10,
+            "FORMATS": {
+                "DATETIME": "YYYY-MM-DD HH:mm:ss",
+                "DATE": "YYYY-MM-DD",
+                "TIME": "HH:mm:ss"
+            }
+        }
+    ],
+    "DBTBLS": {
+        "REG_ASS": "TBL_REG_ASS",
+        "ACT_ITMS": "TBL_ACT_ITM",
+        "ACT_ITMS_DEP": "DFT_ACT_DEP",
+        "REF_REG": "TBL_REG_REF",
+        "CRM_USERS": "TBL_CRM_USR",
+        "REG_STATUS": "TBL_REG_STA",
+        "GEN_DEP": "TBL_GEN_DEP"
+    }
+}

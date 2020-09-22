@@ -6,8 +6,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#DBCONFIG
-app/config/db_config.json
 
 # Sessions
 sessions
