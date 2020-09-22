@@ -1,0 +1,195 @@
+<!-- Core JS files -->
+<script src="/global_assets/js/main/jquery.min.js"></script>
+
+<% if(plugins.includes('react')){ %>
+<script src="/global_assets/js/plugins/react/production/react.production.min.js"></script>
+<script src="/global_assets/js/plugins/react/production/react-dom.production.min.js"></script>
+<script src="/global_assets/js/plugins/babel/babel.min.js"></script>
+<% } %>
+
+<script src="/global_assets/js/plugins/logs/loglevel/loglevel.min.js"></script>
+<script src="/global_assets/js/plugins/logs/loglevel/loglevel-plugin-remote.min.js"></script>
+<script src="/global_assets/js/plugins/logs/loglevel/loglevel-config.js"></script>
+
+<script src="/global_assets/js/main/bootstrap.bundle.min.js"></script>
+<script src="/global_assets/js/plugins/loaders/blockui.min.js"></script>
+<script src="/global_assets/js/plugins/ui/ripple.min.js"></script>
+<script type="text/javascript" src="/assets/js/custom.js"></script>
+
+<script src="/global_assets/js/plugins/templating/hogan/hogan-3.0.1.js"></script>
+
+<!-- /core JS files -->
+
+<!-- Theme JS files -->
+<script src="/assets/js/app.js"></script>
+<!-- /theme JS files -->
+
+<% if(plugins.includes('datatables')){ %>
+<script src="/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('select2')){ %>
+<script src="/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('summernote')){ %>
+<script src="/global_assets/js/plugins/editors/summernote/summernote.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('ckeditor')){ %>
+<script src="/global_assets/js/plugins/editors/ckeditor/ckeditor.js"></script>
+<% } %>
+
+<% if(plugins.includes('jquery_ui-interactions')){ %>
+<script src="/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
+<script src="/global_assets/js/plugins/extensions/jquery_ui/touch.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('moment')){ %>
+<script src="/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+<script src="/global_assets/js/plugins/ui/moment/moment-timezone.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('daterangepicker')){ %>
+<script src="/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+<% } %>
+
+<% if(plugins.includes('anytime')){ %>
+<script src="/global_assets/js/plugins/pickers/anytime.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('pickadate')){ %>
+<script src="/global_assets/js/plugins/pickers/pickadate/picker.js"></script>
+<script src="/global_assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+<script src="/global_assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+<script src="/global_assets/js/plugins/pickers/pickadate/legacy.js"></script>
+<% } %>
+
+<% if(plugins.includes('uniform')){ %>
+<script src="/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('switchery')){ %>
+<script src="/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('switch')){ %>
+<script src="/global_assets/js/plugins/forms/styling/switch.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('touchspin')){ %>
+<script src="/global_assets/js/plugins/forms/inputs/touchspin.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('jgrowl')){ %>
+<script src="/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('bootbox')){ %>
+<script src="/global_assets/js/plugins/notifications/bootbox.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('contextmenu')){ %>
+<script src="/global_assets/js/plugins/extensions/contextmenu.js"></script>
+<% } %>
+
+<% if(plugins.includes('prism')){ %>
+<script src="/global_assets/js/plugins/ui/prism.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('sticky')){ %>
+<script src="/global_assets/js/plugins/ui/sticky.min.js"></script>
+<% } %>
+
+<!-- highcharts -->
+<% if(plugins.includes('highcharts')){ %>
+<script src="/global_assets/js/plugins/highcharts/highcharts.js"></script>
+<script src="/global_assets/js/plugins/highcharts/highcharts-more.js"></script>
+<!-- <script src="/global_assets/js/plugins/highcharts/modules/series-label.js"></script> -->
+<script src="/global_assets/js/plugins/highcharts/modules/pattern-fill.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-heatmap')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/heatmap.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-wordcloud')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/wordcloud.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-gauge')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/solid-gauge.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-export')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/exporting.js"></script>
+<script src="/global_assets/js/plugins/highcharts/modules/export-data.js"></script>
+<% } %>
+
+<% if(plugins.includes('variable-pie')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/variable-pie.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-maps')){ %>
+<script src="/global_assets/js/plugins/highcharts/maps/modules/map.js"></script>
+<script src="/global_assets/js/plugins/highcharts/maps/modules/data.js"></script>
+<script src="/global_assets/js/plugins/highcharts/mapdata/custom/world.js"></script>
+<% } %>
+
+<% if(plugins.includes('highslides-popup')){ %>
+<script src="/global_assets/js/plugins/highcharts/media/highslide-full.min.js"></script>
+<script src="/global_assets/js/plugins/highcharts/media/highslide.config.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-treemap')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/treemap.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-maps_export')){ %>
+<script src="/global_assets/js/plugins/highcharts/maps/modules/exporting.js"></script>
+<script src="/global_assets/js/plugins/highcharts/maps/modules/offline-exporting.js"></script>
+<% } %>
+
+<% if(plugins.includes('highcharts-drilldown')){ %>
+<script src="/global_assets/js/plugins/highcharts/modules/drilldown.js"></script>
+<% } %>
+<!-- End highcharts -->
+
+<% if(plugins.includes('validator')){ %>
+    <script type="text/javascript" src="/global_assets/js/plugins/validator/validator.min.js"></script>
+    <script type="text/javascript" src="/assets/js/custom_validation.js"></script>
+<% } %>
+
+<% if(plugins.includes('input-object-spinner')){ %>
+    <script type="text/javascript" src="/global_assets/js/plugins/input-object-spinner/js/InputObjectSpinner.min.js"></script>
+<% } %>
+
+<% if(plugins.includes('socketio')){ %>
+    <script>
+        user_details = <%- JSON.stringify(user) %>;
+    </script>
+    <script type="text/javascript" src="/global_assets/js/plugins/socketio/socket.io.js"></script>
+    <script src="/assets/modules/common/custom_socket.mjs" type="module"></script>
+<% } %>
+
+<script>
+    var pageDetails = {};
+
+    <% if ((typeof pageDetails !== 'undefined' && pageDetails)) { %>
+        pageDetails = <%- JSON.stringify(pageDetails) %>;
+    <% } else { %>
+        pageDetails ={};
+    <% } %>
+</script>
+
+<% if(page_assets.js == true){ %>
+<script src="/assets/pages<%= _page_assets_path %>.js" type="text/javascript"></script>
+<% } %>
+
+<% if(page_assets.js_module == true){ %>
+    <script src="/assets/modules/pages<%= _page_assets_path %>.mjs" type="module"></script>
+<% } %>
+
+<% if(page_assets.js_babel == true){ %>
+    <script src="/assets/modules/pages<%= _page_assets_path %>.mjs" type="text/babel"></script>
+<% } %>

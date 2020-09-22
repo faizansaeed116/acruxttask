@@ -1,0 +1,395 @@
+<div class="card">
+    <div class="card-header header-elements-inline bg-slate-800">
+        <h7 class="card-title">Contacts Management</h7>
+
+        <div class="header-elements">
+            <div class="list-icons">
+                <a href="#" id ="newuser" class="list-icons-item" data-toggle="modal" data-target="#addNewUser" data-backdrop="static" data-keyboard="false"><i
+                        class="icon-stack-plus mr-1"></i> New</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header header-elements-inline alpha-primary alert-primary">
+                                <h7 class="card-title">Advanced Search</h7>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body collapse">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>First Name:</label>
+                                                            <input type="text" name="s_fname" id="s_fname" placeholder="First Name"
+                                                                class="form-control" maxlength="35">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Last Name:</label>
+                                                            <input type="text" name="s_lname" id="s_lname" placeholder="Last Name"
+                                                                class="form-control" maxlength="35">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" id="s_email_group">
+                                                            <label>Email:</label>
+                                                            <input type="email" name="s_email" id="s_email" placeholder="Email" class="form-control" maxlength="50">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>City:</label>
+                                                            <input type="text" name="s_city" id="s_city" placeholder="City"
+                                                                class="form-control" maxlength="35">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                               
+                                        </div>
+                                    </div>
+
+                                    <div class="text-right">
+                                        <button type="button" id="search_user" class="btn btn-primary"> Search<i
+                                                class="icon-paperplane ml-2"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        <table class="table datatable-generated table-bordered table-striped table-xs table-head-primary" style="width:100%">
+           
+        </table>
+    </div>
+</div>
+
+<!-- Add New User Modal -->
+<div class="modal fade" data-spy="scroll" id="addNewUser">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #03a9f4;">
+                <h4 class="modal-title">Add New User!</h4>
+<!--                     
+                <button type="button" class="close" data-dismiss="modal">X</button> -->
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-start flex-column flex-md-row">
+                    <div class="col">
+                        <form class="user-form" name="add_form" id="add_form" action="" method="POST" autocomplete="off">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h7 class="card-title">
+                                        Personal Information
+                                    </h7>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">First Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter First Name">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Middle Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="middlename" class="form-control" id="middlename" placeholder="Enter Middle Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Last Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Full Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Gender</label>
+                                                <div class="col-lg-9">
+                                                    <select name="usergender" class="form-control" id="usergender" data-minimum-results-for-search="Infinity">
+                                                        <option value="">Select</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Email address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="email" name="useremail" class="form-control" id="useremail" placeholder="Enter Email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Phone Number</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="userphone" class="form-control" id="userphone" placeholder="Enter Phone Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="useraddress" class="form-control" id="useraddress" placeholder="Enter Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">City</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="usercity" class="form-control" id="usercity" placeholder="Enter City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h7 class="card-title">
+                                        Company Information
+                                    </h7>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Company Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="usercompany" class="form-control" id="usercompany" placeholder="Enter Company Name">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">User Title</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="usertitle" class="form-control" id="usertitle" placeholder="Enter User Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">User Role</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="userrole" class="form-control" id="userrole" placeholder="Enter User Role">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>        
+            </div>
+        
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn bg-primary" id="addUser" >Create</button>
+                <button type="button" class="btn bg-slate-400" id="closeForm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit User Modal -->
+<div class="modal fade" data-spy="scroll" id="editUser">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #03a9f4;">
+                <h4 class="modal-title">Edit User Details</h4>
+                    
+                <!-- <button type="button" class="close" data-dismiss="modal">X</button> -->
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-start flex-column flex-md-row">
+                    <div class="col">
+                        <form class="user-form" name="edit_form" id="edit_form" action="" method="POST" autocomplete="off">
+                            <input type="hidden" name="e_iid"  id="e_iid">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h7 class="card-title">
+                                        Personal Information
+                                    </h7>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">First Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_firstname" class="form-control" id="e_firstname" placeholder="Enter First Name">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Middle Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_middlename" class="form-control" id="e_middlename" placeholder="Enter Middle Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Last Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_lastname" class="form-control" id="e_lastname" placeholder="Enter Full Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Gender</label>
+                                                <div class="col-lg-9">
+                                                    <select placeholder="Select" name="e_usergender" class="form-control" id="e_usergender" data-minimum-results-for-search="Infinity">
+                                                    
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                    </select>
+                                                    
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Email address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="email" name="e_useremail" class="form-control" id="e_useremail" placeholder="Enter Email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Phone Number</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_userphone" class="form-control" id="e_userphone" placeholder="Enter Phone Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_useraddress" class="form-control" id="e_useraddress" placeholder="Enter Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">City</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_usercity" class="form-control" id="e_usercity" placeholder="Enter City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h7 class="card-title">
+                                        Company Information
+                                    </h7>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Company Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_usercompany" class="form-control" id="e_usercompany" placeholder="Enter Company Name">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">User Title</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_usertitle" class="form-control" id="e_usertitle" placeholder="Enter User Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">User Role</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="e_userrole" class="form-control" id="e_userrole" placeholder="Enter User Role">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>        
+            </div>
+        
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn bg-primary" id="updateUser" >Save</button>
+                <button type="button" class="btn bg-slate-400" id="closeEditForm" data-dismiss="modal">Close</button>
+               
+            </div>
+        </div>
+    </div>
+</div>

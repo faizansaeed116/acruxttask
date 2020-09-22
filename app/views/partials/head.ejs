@@ -1,0 +1,19 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title><%=title%></title>
+
+  <% plugins.forEach(function(plugin){ %>
+    <% (fplugins.plugins[plugin].files).forEach(function(plugin_file){ %>
+        <% if(plugin_file.type == 'css'){ %>
+        <link href="<%= plugin_file.path %>" rel="<%= plugin_file.rel %>" type="<%= plugin_file.mime %>">
+        <% } %>
+    <% }); %>
+  <% }); %>
+
+  <% if(page_assets.css == true){ %>
+  <link href="/assets/pages<%= _page_assets_path %>.css" rel="stylesheet" type="text/css">
+  <% } %>
+
+</head>

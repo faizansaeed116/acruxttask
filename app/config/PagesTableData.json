@@ -1,0 +1,810 @@
+{
+    "page": [
+        {
+            "id": "InherentRisk",
+            "tables": [
+                {
+                    "id": "LikelihoodAssessment",
+                    "header": "Inherent Risk Likelihood Assessment",
+                    "parameter": [
+                        {
+                            "description": "Historical",
+                            "id": "historical",
+                            "measure": [
+                                {
+                                    "description": "Past Trend of Non-compliance of Similar Regulations",
+                                    "id": "HPTRD",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "On average, multiple instances per entity every year."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "On average, one instance of non-compliance per entity per year."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "On average, rare (or no) instances of noncompliance."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Complexity of Products, Services & Processes",
+                            "id": "complexity_products_service_processes",
+                            "measure": [
+                                {
+                                    "description": "Complexity of Affected Products and Services",
+                                    "id": "CAPRD",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Product that serve to implement specific customer requests, have been created specifically for them; services are of high complexity if they require considerable time and expenditure to provide them and involve input from third parties"
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Product that consists of two different product classes, and is not available for all costumers; services require more time and expenditure."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "Traditional product for high-volume business that cover basic customer needs; services are of low complexity if the time and expense involved in providing them is low."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "description": "Complexity of the Processes",
+                                    "id": "COMPP",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Five or more additional units."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Four additional units."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "No or one additional unit."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "description": "Frequency/Cycle of Process",
+                                    "id": "CYCLP",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Less than Monthly."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Less than Quarterly."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "More than Quarterly."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Complexity of the Regulation",
+                            "id": "complexity_regulation",
+                            "measure": [
+                                {
+                                    "description": "Cooperation with and monitoring of Third Parties/Outsourcing",
+                                    "id": "CPARTS",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "No monitoring is performed and - in the case of outsourcing - there is no risk analysis"
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Non-regular monitoring is performed."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "There is no cooperation with third parties, or the cooperation is monitored constantly throughout the specialist business unit (if outsourcing has been performed: regular risk analyses, inspection of audit reports; if external cooperation: contract management and maintenance)."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "description": "Multiple Interdisciplinary Systems/Interfaces",
+                                    "id": "MINTER",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "More than four systems affected."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Two to four systems affected."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "Less than 2 systems affected."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "description": "Cost/effort of compliance",
+                                    "id": "CEFFC",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Significant cost and technical requirements to implement the new processes or system to comply with the regulation."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "New processes/syst ems required for ensuring compliance. Moderate cost and effort required to implement the new processes or systems."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "The regulatory requirements can be complied with by leveraging existing systems and processes, and/or incurring no major additional cost."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Scale of Business",
+                            "id": "scale_business",
+                            "measure": [
+                                {
+                                    "description": "Scale of Business (Measured by the Number of Employees in Business Units impacted by the regulation)",
+                                    "id": "SOBUS",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "> 1% of bank's total employees (permanent and contractual)."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "< 1% of bank's total employees (permanent and contractual)."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "< 0.1% of bank's total employees (permanent and contractual)."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ImpactAssessment",
+                    "header": "Inherent Risk Impact Assessment",
+                    "parameter": [
+                        {
+                            "description": "Reputational",
+                            "id": "reputational",
+                            "measure": [
+                                {
+                                    "description": "Loss of Reputation among customers",
+                                    "id": "LOREP",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Customer complaints received on the matters which are not likely to not be resolved soon; major consequences could be drawn. Interaction with the FI is terminated; Expected loss of more than 5% of customer base"
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Customer complaints received on the matters that are likely to be resolved in the next 3 months; The original level of confidence can be restored with considerable effort, expense and time. Expected loss of 1% to 5% customer base"
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "Customer complaints received on the matters that have high probability to be resolved immediately;  <br/>Confidence could be questioned in the short term. The original level of confidence can be easily recovered; <br/> Expected loss of less than 1% customer base "
+                                        }
+                                    ]
+                                },
+                                {
+                                    "description": "Adverse media coverage",
+                                    "id": "AMCOV",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Pervasive negative media coverage revealed popular media (popular outrage on social media / expected to be a headline matter on mainstream media)"
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Short term and pervasive negative media coverage (highlight in social media / mainstream media)"
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "No or limited negative media coverage (no highlight in social or mainstream media)"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Financial",
+                            "id": "financial",
+                            "measure": [
+                                {
+                                    "description": "Economic Loss due to administrative fines/penalty payments possible in future [assessed as historical figures of penalties in similar regulatory breaches (past 10 years), pervasiveness of the regulation, criticality of the regulation]",
+                                    "id": "ECLOSS",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "> 1% of last year's revenue"
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "> 0.5%, < 1% of last year's revenue"
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "> 0.5% of last year's revenue"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "description": "Related Regulatory Reporting Requirements (this measure should be used to assess the financial impact as detailed in the measure above)",
+                                    "id": "RRREQ",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "Submitting mandatory reporting related to matters for which there are minimum requirements to be kept and are of complex/entitylevel matters (for e.g. CAR, Liquidity Ratios etc.)."
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Submitting mandatory reporting related to matters for which there are minimum requirements to be kept but are of transactional/less complex matters (like maximum customer exposures etc.)"
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "Submitting mandatory reporting related to matters for which there are no minimum requirements"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Strategic",
+                            "id": "strategic",
+                            "measure": [
+                                {
+                                    "description": "Past Trend of Non-compliance of Similar Regulations",
+                                    "id": "SPTRD",
+                                    "help_text": "HELP",
+                                    "options": [
+                                        {
+                                            "text": "N/A",
+                                            "value": "na",
+                                            "color_class": "bg-grey-300",
+                                            "description": "Not Applicable",
+                                            "default": true
+                                        },
+                                        {
+                                            "text": "High",
+                                            "value": "high",
+                                            "color_class": "bg-danger",
+                                            "description": "License of product/business could be cancelled"
+                                        },
+                                        {
+                                            "text": "Medium",
+                                            "value": "medium",
+                                            "color_class": "bg-orange-300",
+                                            "description": "Material warning letters to the Board / Management on possible cancellation of business product/license."
+                                        },
+                                        {
+                                            "text": "Low",
+                                            "value": "low",
+                                            "color_class": "bg-success",
+                                            "description": "Warning letter from the regulator; without sanctions or material consequences"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ControlAssessment",
+            "tables": [
+                {
+                    "id": "DesignEffectivenessRating",
+                    "header": "Design Effectiveness Rating",
+                    "measure": [
+                        {
+                            "description": "Controls in written form (processes and controls in written form)",
+                            "id": "CWRTR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "There are no working directives/controls or written procedures."
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "There are only a few processes or controls documented or the available documents are not up to date"
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Up-to-date working controls and process descriptions are available for all important processes and controls"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "1st-Level Controls (Scale of Control) for day to day transactions",
+                            "id": "ILCSR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "No checks"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Random checks based on Review/ plausibility "
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Double-check principle for each process / transaction "
+                                }
+                            ]
+                        },
+                        {
+                            "description": "1st-Level Controls (Cycle of Control) for day to day transactions",
+                            "id": "ILCCR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "Checks in intervals of over one quarter"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Checks at least once a quarter "
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Checks at least once a month, adhoc or for every transaction situation "
+                                }
+                            ]
+                        },
+                        {
+                            "description": "2nd-Level Controls (Scale of Control - only for pre facto review controls) for day to day transactions",
+                            "id": "SLCSR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "No checks"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Random checks based on Review/ plausibility "
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Double-check principle for each process / transaction "
+                                }
+                            ]
+                        },
+                        {
+                            "description": "2nd-Level Controls (Cycle of Control - only for pre facto review controls) for day to day transactions",
+                            "id": "SLCCR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "Checks in intervals of over one quarter"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Checks at least once a quarter"
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Checks at least once a month, adhoc or for every transaction situation"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Diagnosis of control design reviews from second line of defense (Operational Risk and Compliance Function)",
+                            "id": "DCDSR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "Poor"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Satisfactory"
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Good"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Diagnosis of control design reviews during audits from third line of defense (Internal/External Audit)",
+                            "id": "DCDTR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "Major/Severe findings"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Notable findings"
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "No findings or only minor recommendations"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Diagnosis of reviews/audits from third parties (external regulatory reviews and other non-audit reviews)",
+                            "id": "DRATR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "Poor"
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Satisfactory"
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Good"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Supervision (\"Standard Settings\" are there guidelines from other units?)",
+                            "id": "SUPVR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "There is no explicit standard setter, nor is there any monitoring, management or implementation of standards."
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "Standards are monitored, managed an implemented by the business unit itself."
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "Standards are managed, implemented and monitored by a different business unit, e.g. Operations, Compliance, and Legal."
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Complaint Management (from customers regarding relevant processes of the FI)",
+                            "id": "COMGR",
+                            "help_text": "HELP",
+                            "options": [
+                                {
+                                    "text": "N/A",
+                                    "value": "na",
+                                    "color_class": "bg-grey-300",
+                                    "description": "Not Applicable",
+                                    "default": true
+                                },
+                                {
+                                    "text": "High",
+                                    "value": "high",
+                                    "color_class": "bg-danger",
+                                    "description": "The number of complaints is very high. (from >5% of customer base) "
+                                },
+                                {
+                                    "text": "Medium",
+                                    "value": "medium",
+                                    "color_class": "bg-orange-300",
+                                    "description": "There is a noteworthy number of complaints. (from >1% of customer base) "
+                                },
+                                {
+                                    "text": "Low",
+                                    "value": "low",
+                                    "color_class": "bg-success",
+                                    "description": "There are no complaints or only a small number of complaints (from <1% of customer base)"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

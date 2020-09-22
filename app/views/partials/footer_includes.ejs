@@ -1,0 +1,19 @@
+<% plugins.forEach(function(plugin){ %>
+    <% (fplugins.plugins[plugin].files).forEach(function(plugin_file){ %>
+        <% if(plugin_file.type == 'js'){ %>
+        <script src="<%= plugin_file.path %>" type="<%= plugin_file.mime %>"></script>
+        <% } %>
+    <% }); %>
+<% }); %>
+
+<% if(page_assets.js == true){ %>
+<script src="/assets/pages<%= _page_assets_path %>.js" type="text/javascript"></script>
+<% } %>
+
+<% if(page_assets.js_module == true){ %>
+    <script src="/assets/modules/pages<%= _page_assets_path %>.mjs" type="module"></script>
+<% } %>
+
+<% if(page_assets.js_babel == true){ %>
+    <script src="/assets/modules/pages<%= _page_assets_path %>.mjs" type="text/babel"></script>
+<% } %>

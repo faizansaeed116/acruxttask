@@ -1,0 +1,453 @@
+{
+    "plugins": {
+        "fonts": {
+            "files": [{
+                "type": "css",
+                "mime": "text/css",
+                "rel": "stylesheet",
+                "path": "https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900"
+            }]
+        },
+        "jquery": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/main/jquery.min.js"
+            }]
+        },
+        "default": {
+            "files": [{
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/global_assets/css/icons/icomoon/styles.min.css"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/assets/js/custom.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/assets/js/app.js"
+                }
+            ]
+        },
+        "react": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/react/production/react.production.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/react/production/react-dom.production.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/babel/babel.min.js"
+                }
+            ]
+        },
+        "loglevel": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/logs/loglevel/loglevel.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/logs/loglevel/loglevel-plugin-remote.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/logs/loglevel/loglevel-config.js"
+                }
+            ]
+        },
+        "bootstrap": {
+            "files": [{
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/assets/css/bootstrap.min.css"
+                },
+                {
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/assets/css/bootstrap_limitless.min.css"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/main/bootstrap.bundle.min.js"
+                }
+            ]
+        },
+        "layout": {
+            "files": [{
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/assets/css/layout.min.css"
+                },
+                {
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/assets/css/components.min.css"
+                },
+                {
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/assets/css/colors.min.css"
+                },
+                {
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/assets/css/custom.min.css"
+                }
+            ]
+        },
+        "blockui": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/loaders/blockui.min.js"
+            }]
+        },
+        "ripple": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/ui/ripple.min.js"
+            }]
+        },
+        "hogan": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/templating/hogan/hogan-3.0.1.js"
+            }]
+        },
+        "datatables": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/tables/datatables/datatables.min.js"
+            }]
+        },
+        "select2": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/forms/selects/select2.min.js"
+            }]
+        },
+        "summernote": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/editors/summernote/summernote.min.js"
+            }]
+        },
+        "ckeditor": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/editors/ckeditor/ckeditor.js"
+            }]
+        },
+        "jquery_ui-interactions": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/extensions/jquery_ui/touch.min.js"
+                }
+            ]
+        },
+        "moment": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/ui/moment/moment.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/ui/moment/moment-timezone.min.js"
+                }
+            ]
+        },
+        "daterangepicker": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/pickers/daterangepicker.js"
+            }]
+        },
+        "anytime": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/pickers/anytime.min.js"
+            }]
+        },
+        "pickadate": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/pickers/pickadate/picker.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/pickers/pickadate/picker.date.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/pickers/pickadate/picker.time.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/pickers/pickadate/legacy.js"
+                }
+            ]
+        },
+        "uniform": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/forms/styling/uniform.min.js"
+            }]
+        },
+        "switchery": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/forms/styling/switchery.min.js"
+            }]
+        },
+        "switch": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/forms/styling/switch.min.js"
+            }]
+        },
+        "touchspin": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/forms/inputs/touchspin.min.js"
+            }]
+        },
+        "jgrowl": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/notifications/jgrowl.min.js"
+            }]
+        },
+        "bootbox": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/notifications/bootbox.min.js"
+            }]
+        },
+        "contextmenu": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/extensions/contextmenu.js"
+            }]
+        },
+        "prism": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/ui/prism.min.js"
+            }]
+        },
+        "sticky": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/ui/sticky.min.js"
+            }]
+        },
+        "highcharts": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/highcharts.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/highcharts-more.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/modules/pattern-fill.js"
+                }
+            ]
+        },
+        "highcharts-heatmap": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/highcharts/modules/heatmap.js"
+            }]
+        },
+        "highcharts-wordcloud": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/highcharts/modules/wordcloud.js"
+            }]
+        },
+        "highcharts-gauge": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/highcharts/modules/solid-gauge.js"
+            }]
+        },
+        "highcharts-export": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/modules/exporting.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/modules/export-data.js"
+                }
+            ]
+        },
+        "highcharts-maps": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/maps/modules/map.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/maps/modules/data.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/mapdata/custom/world.js"
+                }
+            ]
+        },
+        "highslides-popup": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/media/highslide-full.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/media/highslide.config.js"
+                }
+            ]
+        },
+        "highcharts-treemap": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/highcharts/modules/treemap.js"
+            }]
+        },
+        "highcharts-maps_export": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/maps/modules/exporting.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/highcharts/maps/modules/offline-exporting.js"
+                }
+            ]
+        },
+        "highcharts-drilldown": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/highcharts/modules/drilldown.js"
+            }]
+        },
+        "variable-pie": {
+            "files": [{
+                "type": "js",
+                "mime": "text/javascript",
+                "path": "/global_assets/js/plugins/highcharts/modules/variable-pie.js"
+            }]
+        },
+        "validator": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/validator/validator.min.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/assets/js/custom_validation.js"
+                }
+            ]
+        },
+        "input-object-spinner": {
+            "files": [{
+                    "type": "css",
+                    "mime": "text/css",
+                    "rel": "stylesheet",
+                    "path": "/global_assets/js/plugins/input-object-spinner/css/InputObjectSpinner.min.css"
+                },
+                {
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/input-object-spinner/js/InputObjectSpinner.min.js"
+                }
+            ]
+        },
+        "socketio": {
+            "files": [{
+                    "type": "js",
+                    "mime": "text/javascript",
+                    "path": "/global_assets/js/plugins/socketio/socket.io.js"
+                },
+                {
+                    "type": "js",
+                    "mime": "module",
+                    "path": "/assets/modules/common/custom_socket.mjs"
+                }
+            ]
+        }
+    }
+}

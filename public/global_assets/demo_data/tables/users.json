@@ -1,0 +1,52 @@
+{
+    "data": [
+      [
+        "Qasim Ali Shah",
+        "qasim.ali.shah@crm.com",
+        "Department 1",
+        "Unit 1",
+        "Title 1",
+        "Active"
+      ],
+      [
+        "W. Baqri",
+        "w.baqri@crm.com",
+        "Department 2",
+        "Unit 2",
+        "Title 2",
+        "Active"
+      ],
+      [
+        "S. Farooqi",
+        "s.farooqi@crm.com",
+        "Department 1",
+        "Unit 1",
+        "Title 3",
+        "Active"
+      ],
+      [
+        "Y. Alvi",
+        "y.alvi@crm.com",
+        "Department 2",
+        "Unit 1",
+        "Title 1",
+        "Active"
+      ],
+      [
+        "H. Daniel",
+        "h.daniel@crm.com",
+        "Department 1",
+        "Unit 2",
+        "Title 2",
+        "Active"
+      ],
+      [
+        "S. Mahli",
+        "s.mahli@crm.com",
+        "Department 2",
+        "Unit 1",
+        "Title 1",
+        "Active"
+      ]
+    ]
+  }

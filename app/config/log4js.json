@@ -1,0 +1,61 @@
+{
+  "appenders": {
+    "accessLogs": {
+      "type": "file",
+      "filename": "logs/access.log"
+    },
+    "appLogs": {
+      "type": "file",
+      "filename": "logs/info.log"
+    },
+    "frontAppLogs": {
+      "type": "file",
+      "filename": "logs/front.log"
+    },
+    "appErrorLogs": {
+      "type": "file",
+      "filename": "logs/error.log"
+    },
+    "console": {
+      "type": "console"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": [
+        "accessLogs",
+        "console"
+      ],
+      "level": "info"
+    },
+    "accessLogs": {
+      "appenders": [
+        "accessLogs"
+      ],
+      "level": "info"
+    },
+    "appLogs": {
+      "appenders": [
+        "appLogs",
+        "console"
+      ],
+      "level": "info"
+    },
+    "frontApp": {
+      "appenders": [
+        "frontAppLogs",
+        "console"
+      ],
+      "level": "trace"
+    },
+    "appErrorLogs": {
+      "appenders": [
+        "appErrorLogs",
+        "console"
+      ],
+      "level": "error"
+    }
+  },
+  "pm2": true,
+  "pm2InstanceVar": "INSTANCE_ID"
+}

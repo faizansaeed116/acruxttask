@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<%
+  var _page_assets_path = '';
+  page_id.split("-").forEach(function(_path_ff) {
+    _page_assets_path += '/' + _path_ff
+  });
+%>
+
+<% include ./partials/head %>
+
+<body class="">
+
+  <!-- Main navbar -->
+  <!-- <div class="fixed-top"> -->
+    <% include ./partials/header %>
+    <%# include ./partials/topbar_menu %>
+  <!-- </div> -->
+  <!-- /main navbar -->
+
+  <!-- Page content -->
+  <div class="page-content pt-0">
+
+    <!-- Main sidebar -->
+    <% include ./partials/side_menu %>
+    <!-- /main sidebar -->
+
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+      <!-- Page header -->
+      <% include ./partials/content_head %>
+      <!-- /page header -->
+
+
+      <!-- Content area -->
+      <div class="content" id="content_root">
+        <%- include('./pages' + _page_assets_path) %>
+      </div>
+      <!-- /content area -->
+
+    </div>
+    <!-- /main content -->
+
+  </div>
+  <!-- /page content -->
+
+  <!-- Footer Includes -->
+  <% include ./partials/footer_includes %>
+</body>
+
+</html>

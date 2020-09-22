@@ -1,0 +1,36 @@
+.inputObjectSpinner > .input-group-prepend {
+    margin-right: 0;
+}
+
+.inputObjectSpinner > .input-group-append {
+    margin-left: 0;
+}
+
+.inputObjectSpinner > .input-group-prepend > button {
+    /* border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important; */
+    margin-left: -1px;
+}
+
+.inputObjectSpinner > .input-group-append > button {
+    /* border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important; */
+    margin-right: -1px;
+}
+
+.inputObjectSpinner > .input-group-prepend > button:after {
+    content: ' \02C4';
+}
+
+.inputObjectSpinner > .input-group-append > button:after {
+    content: ' \02C5';
+}
+
+.inputObjectSpinner > input{
+    border-top: 1px solid black !important;
+    border-bottom: 1px solid black !important;
+}
+
+.inputObjectSpinner {
+    min-width: 160px;
+}

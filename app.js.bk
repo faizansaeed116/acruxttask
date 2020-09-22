@@ -1,0 +1,165 @@
+var createError = require('http-errors');
+
+const express = require('express');
+const router = express.Router();
+
+var session = require('express-session');
+
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+var path = require('path');
+var cookieParser = require('cookie-parser');
+
+const log4js = require('log4js');
+// var logger = require('morgan');
+
+// var favicon = require('serve-favicon');
+passport = require('passport');
+var flash = require('connect-flash');
+require('./app/config/passport')(passport);
+
+fs = require('fs');
+
+appRoot = path.resolve(__dirname);
+SysConfig = require(appRoot + "/app/config/sys_config.json");
+
+const log4jsConfig = require(appRoot + "/app/config/log4js.json");
+log4js.configure(log4jsConfig);
+const accessLogger = log4js.getLogger('accessLogs');
+appLogs = log4js.getLogger('appLogs');
+appErrorLogs = log4js.getLogger('appErrorLogs');
+
+const Globals = require("./app/helpers/globals.js");
+
+_GLOBAL_DATA = new Globals();
+_GLOBAL_DATA.DefaultData = SysConfig.default_data;
+
+oracledb = require('oracledb');
+OracledbClass = require('./app/helpers/OracledbClass');
+ODB = new OracledbClass();
+
+ODB.CreatePool('rpool', function (status) {
+  if (status) {
+    appLogs.debug("rpool Created.");
+    ODB.checkPoolStatus('rpool')
+  } else {
+    appErrorLogs.error("rpool Not Created.");
+  }
+});
+
+ODB.CreatePool('wpool', function (status) {
+  if (status) {
+    appLogs.debug("wpool Created.");
+  } else {
+    appErrorLogs.error("wpool Not Created.");
+  }
+});
+
+get_data_details = function (req, res, next) {
+  if (req.session.sc && req.originalUrl != '/') {
+    var default_data = JSON.parse(JSON.stringify(_GLOBAL_DATA.DefaultData));
+    // default_data.details = [];
+    req.data_details = default_data;
+    next();
+
+  } else {
+    if (req.originalUrl == '/') {
+      var default_data = JSON.parse(JSON.stringify(_GLOBAL_DATA.DefaultData));
+      // default_data.details = [];
+      req.data_details = default_data;
+      next();
+    } else {
+      res.redirect('/');
+    }
+  }
+}
+
+authUser = function (req, res, next) {
+
+  if (req.session.sc) {
+    if (req.isAuthenticated()) {
+      return next();
+    } else {
+      console.log('User not logged in');
+      res.redirect('/login');
+    }
+  } else {
+    res.redirect('/');
+  }
+}
+
+var indexRouter = require('./app/controllers/index');
+var regulatoryRouter = require('./app/controllers/regulatory');
+var riskAssessmentRouter = require('./app/controllers/compliance/risk_assessment');
+var riskMonitoringRouter = require('./app/controllers/compliance/risk_monitoring');
+var riskReportingRouter = require('./app/controllers/compliance/risk_reporting');
+var usersRouter = require('./app/controllers/users');
+
+const UserModel = require('./app/models/UserModel');
+UserModelObj = new UserModel();
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'app/views'));
+app.set('view engine', 'ejs');
+
+// app.use(logger('dev'));
+app.use(log4js.connectLogger(accessLogger, {
+  level: 'info',
+  // include the Express request ID in the logs
+  format: (req, res, format) => format(`:remote-addr - ${req.id} - ":method :url HTTP/:http-version" :status :content-length ":referrer" ":user-agent"`)
+}));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  key: 'sid',
+  secret: 'dh8q7whd172d12981on3d019jd',
+  resave: true,
+  saveUninitialized: true,
+  // store: new MongoStore({
+  //   url: DBurl,
+  //   collection: 'sessions'
+  // }),
+  cookie: {
+    expires: 600000000
+  }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user || null
+  next();
+})
+
+app.use('/', indexRouter);
+app.use('/regulatory', regulatoryRouter);
+app.use('/compliance/risk_assessment', riskAssessmentRouter);
+app.use('/compliance/risk_monitoring', riskMonitoringRouter);
+app.use('/compliance/risk_reporting', riskReportingRouter);
+app.use('/users', usersRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
