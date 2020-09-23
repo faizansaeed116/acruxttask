@@ -4,7 +4,7 @@
 
         <div class="header-elements">
             <div class="list-icons">
-                <a href="#" id ="newuser" class="list-icons-item" data-toggle="modal" data-target="#addNewUser" data-backdrop="static" data-keyboard="false"><i
+                <a href="#" id ="newtask" class="list-icons-item" data-toggle="modal" data-target="#addNewTask" data-backdrop="static" data-keyboard="false"><i
                         class="icon-stack-plus mr-1"></i> New</a>
             </div>
         </div>
@@ -71,7 +71,7 @@
                                     </div>
 
                                     <div class="text-right">
-                                        <button type="button" id="search_user" class="btn btn-primary"> Search<i
+                                        <button type="button" id="search_task" class="btn btn-primary"> Search<i
                                                 class="icon-paperplane ml-2"></i></button>
                                     </div>
                                 </form>
@@ -83,5 +83,158 @@
         <table class="table datatable-generated table-bordered table-striped table-xs table-head-primary" style="width:100%">
            
         </table>
+    </div>
+</div>
+
+
+<!-- Add New Task Modal -->
+<div class="modal fade" data-spy="scroll" id="addNewTask">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #03a9f4;">
+                <h4 class="modal-title">Add New Task!</h4>
+<!--                     
+                <button type="button" class="close" data-dismiss="modal">X</button> -->
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-start flex-column flex-md-row">
+                    <div class="col">
+                        <form class="task-form" name="add_form" id="add_form" action="" method="POST" autocomplete="off">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h7 class="card-title">
+                                        Personal Information
+                                    </h7>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">First Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter First Name">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Middle Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="middlename" class="form-control" id="middlename" placeholder="Enter Middle Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Last Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Full Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Gender</label>
+                                                <div class="col-lg-9">
+                                                    <select name="taskgender" class="form-control" id="taskgender" data-minimum-results-for-search="Infinity">
+                                                        <option value="">Select</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Email address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="email" name="taskemail" class="form-control" id="taskemail" placeholder="Enter Email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Phone Number</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="taskphone" class="form-control" id="taskphone" placeholder="Enter Phone Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="taskaddress" class="form-control" id="taskaddress" placeholder="Enter Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">  
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">City</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="taskcity" class="form-control" id="taskcity" placeholder="Enter City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h7 class="card-title">
+                                        Company Information
+                                    </h7>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Company Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="taskcompany" class="form-control" id="taskcompany" placeholder="Enter Company Name">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">task Title</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="tasktitle" class="form-control" id="tasktitle" placeholder="Enter task Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">task Role</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="taskrole" class="form-control" id="taskrole" placeholder="Enter task Role">
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>        
+            </div>
+        
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn bg-primary" id="createTask" >Create</button>
+                <button type="button" class="btn bg-slate-400" id="closeForm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
