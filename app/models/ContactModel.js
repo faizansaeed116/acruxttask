@@ -114,6 +114,41 @@ module.exports = class ContactModel {
         }
 
     }
+
+    //Get All Users
+    getUserList( callback) {
+        try {
+            ODB.GetConnection(function(conn) {
+                conn.select([
+                    "USERS.ID",
+                    "USERS.FNAME",
+                    "USERS.MNAME",
+                    "USERS.LNAME",
+                    "USERS.EMAIL",
+                    "USERS.GENDER",
+                    "USERS.PHONE",
+                    "USERS.ADDRESS",
+                    "USERS.CITY",
+                    "USERS.COMPANY",
+                    "USERS.TITLE",
+                    "USERS.ROLE"
+                    ])
+                    .from('USERS')
+                    .where('USERS.ISDEL', 0)
+                    .then(function(rows) {
+                        if (rows.length > 0) {
+                            return callback(rows, true, "User record exists");
+                        } else {
+                            return callback([], false, "User record does not exists");
+                        }
+                    });
+            });
+        } catch (err) {
+            appErrorLogs.error(err);
+            return callback([], false, "User record not found");
+        }
+    }
+
     //Create new user
     createUser(formdata, callback) {
         var userData = formdata;
@@ -142,6 +177,7 @@ module.exports = class ContactModel {
                 });
         });
     }
+    
     //Get User Details
     getUserDetails(id, callback) {
         try {

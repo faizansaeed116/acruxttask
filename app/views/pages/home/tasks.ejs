@@ -104,136 +104,217 @@
                     <div class="col">
                         <form class="task-form" name="add_form" id="add_form" action="" method="POST" autocomplete="off">
                             <div class="card">
-                                <div class="card-header">
-                                    <h7 class="card-title">
-                                        Personal Information
-                                    </h7>
+                                <div class="card-header header-elements-inline">
+                                    <h5 class="card-title">Task Details</h5>
+                                    <div class="header-elements">
+                                        <div class="list-icons">
+                                            <a class="list-icons-item" data-action="collapse"></a>
+                                            <!-- <a class="list-icons-item" data-action="reload"></a>
+                                            <a class="list-icons-item" data-action="remove"></a> -->
+                                        </div>
+                                    </div>
                                 </div>
+                            
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-md-12 col-sm-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">First Name</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter First Name">
-                                                </div>   
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Middle Name</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="middlename" class="form-control" id="middlename" placeholder="Enter Middle Name">
+                                                <label class="col-lg-2 col-form-label">Title:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Requirement</label>
+                                                <div class="col-lg-10">
+                                                    <textarea rows="5" cols="5" id="requirement" name="requirement" class="form-control" placeholder="Enter Requirement"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="row">
                                         <div class="col-md-6 col-sm-12">    
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Last Name</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Full Name">
-                                                </div>
+                                                <label class="col-lg-2 col-form-label col-form-label-sm text-right">Status</label>
+                                                <div class="col-lg-10">
+                                                    <select placeholder="Select" id="status" name="status" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                        <option value="Open">Open</option>
+                                                        <option value="On hold">On hold</option>
+                                                        <option value="Resolved">Resolved</option>
+                                                        <option value="Closed">Closed</option>
+                                                    </select>
+                                                </div>  
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Gender</label>
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Assigned To</label>
                                                 <div class="col-lg-9">
-                                                    <select name="taskgender" class="form-control" id="taskgender" data-minimum-results-for-search="Infinity">
-                                                        <option value="">Select</option>
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
+                                                    <select placeholder="Select" id="assignedto" name="assignedto" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
                                                     </select>
                                                 </div>  
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-12">  
+                                        <div class="col-md-6 col-sm-12">    
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Email address</label>
-                                                <div class="col-lg-9">
-                                                    <input type="email" name="taskemail" class="form-control" id="taskemail" placeholder="Enter Email">
-                                                </div>
+                                                <label class="col-lg-2 col-form-label col-form-label-sm text-right">Priority</label>
+                                                <div class="col-lg-10">
+                                                    <select placeholder="Select" id="priority" name="priority" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                        <option value="Low">Low</option>
+                                                        <option value="Normal">Normal</option>
+                                                        <option value="High">High</option>
+
+                                                    </select>
+                                                </div>  
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-sm-12">  
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Phone Number</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="taskphone" class="form-control" id="taskphone" placeholder="Enter Phone Number">
+                                        <div class="col-md-6 col-sm-12">   
+                                            <!-- <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Your avatar:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="file" class="form-input-styled" data-fouc>
+                                                    <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
                                                 </div>
                                             </div>
+                                            -->
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">  
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Address</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="taskaddress" class="form-control" id="taskaddress" placeholder="Enter Address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">  
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">City</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="taskcity" class="form-control" id="taskcity" placeholder="Enter City">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <h7 class="card-title">
-                                        Company Information
-                                    </h7>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Company Name</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="taskcompany" class="form-control" id="taskcompany" placeholder="Enter Company Name">
-                                                </div>   
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">task Title</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="tasktitle" class="form-control" id="tasktitle" placeholder="Enter task Title">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">task Role</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="taskrole" class="form-control" id="taskrole" placeholder="Enter task Role">
-                                                </div>   
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </form>
                     </div>    
                 </div>        
             </div>
-        
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn bg-primary" id="createTask" >Create</button>
                 <button type="button" class="btn bg-slate-400" id="closeForm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Add Edit Task Modal -->
+<div class="modal fade" data-spy="scroll" id="editTask">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #03a9f4;">
+                <h4 class="modal-title">Edit Task!</h4>
+<!--                     
+                <button type="button" class="close" data-dismiss="modal">X</button> -->
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-start flex-column flex-md-row">
+                    <div class="col">
+                        <form class="task-form" name="edit_form" id="edit_form" action="" method="POST" autocomplete="off">
+                            <input type="hidden" name="e_tid"  id="e_tid">
+                            <div class="card">
+                                <div class="card-header header-elements-inline">
+                                    <h5 class="card-title">Task Details</h5>
+                                    <div class="header-elements">
+                                        <div class="list-icons">
+                                            <a class="list-icons-item" data-action="collapse"></a>
+                                            <!-- <a class="list-icons-item" data-action="reload"></a>
+                                            <a class="list-icons-item" data-action="remove"></a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Title:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" id="e_title" name="e_title" class="form-control" placeholder="Enter Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Requirement</label>
+                                                <div class="col-lg-10">
+                                                    <textarea rows="5" cols="5" id="e_requirement" name="e_requirement" class="form-control" placeholder="Enter Requirement"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label col-form-label-sm text-right">Status</label>
+                                                <div class="col-lg-10">
+                                                    <select placeholder="Select" id="e_status" name="e_status" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                        <option value="Open">Open</option>
+                                                        <option value="On hold">On hold</option>
+                                                        <option value="Resolved">Resolved</option>
+                                                        <option value="Closed">Closed</option>
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Assigned To</label>
+                                                <div class="col-lg-9">
+                                                    <select placeholder="Select" id="e_assignedto" name="e_assignedto" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label col-form-label-sm text-right">Priority</label>
+                                                <div class="col-lg-10">
+                                                    <select placeholder="Select" id="e_priority" name="e_priority" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                        <option value="Low">Low</option>
+                                                        <option value="Normal">Normal</option>
+                                                        <option value="High">High</option>
+
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">   
+                                            <!-- <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Your avatar:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="file" class="form-input-styled" data-fouc>
+                                                    <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                                </div>
+                                            </div>
+                                            -->
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>        
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn bg-primary" id="updateTask" >Create</button>
+                <button type="button" class="btn bg-slate-400" id="closeeditForm" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

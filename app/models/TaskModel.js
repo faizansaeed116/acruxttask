@@ -85,4 +85,59 @@ module.exports = class TaskModel {
         }
 
     }
+
+    //Create new Task
+    createTask(formdata, callback) {
+        var userData = formdata;
+        var values = {
+            "TASK.TITLE":   userData.title,
+            "TASK.DESCRIPTION":   userData.requirement,
+            "TASK.ASSIGNEDTO":   userData.assignedto,
+            "TASK.PRIORITY":   userData.priority,
+            "TASK.STATUS":  userData.status,
+            "TASK.ADDEDBY": "FAIZAN",
+            "TASK.CREATEDAT": moment().format('YYYY-MM-DD hh:mm:ss'),
+        };
+    
+        ODB.GetConnection(function(conn) {
+            conn.insert(values).into('Task')
+                .then(function() {
+                    return callback([], true, "Task Created");
+                }).catch(function(err) {
+                    console.log(err);
+                    appErrorLogs.error(err);
+                    return callback([], false, "Task not Created");
+                });
+        });
+    }
+
+ //Get User Details
+
+ getTaskDetails(id, callback) {
+     var tid = id;
+     console.log(tid);
+    try {
+        ODB.GetConnection(function(conn) {
+            conn.select([
+                "TASK.TITLE",
+                "TASK.DESCRIPTION",
+                "TASK.ASSIGNEDTO",
+                "TASK.STATUS",
+                "TASK.PRIORITY"
+                ])
+                .from('TASK').where({
+                    'TASK.TID': tid
+                }).then(function(rows) {
+                    if (rows.length > 0) {
+                        return callback(rows[0], true, "Task record exists");
+                    } else {
+                        return callback([], false, "Task record does not exists");
+                    }
+                });
+        });
+    } catch (err) {
+        appErrorLogs.error(err);
+        return callback([], false, "Task record not found");
+    }
+}
 }
