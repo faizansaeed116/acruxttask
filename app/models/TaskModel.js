@@ -9,6 +9,7 @@ module.exports = class TaskModel {
                 
                 
                 conn.count('TASK.TID as count').from('TASK')
+                .where('TASK.ISDEL', 0)
                 .whereRaw(where_query, whereData)
                 .then(function(rows_count) {
 
@@ -32,7 +33,9 @@ module.exports = class TaskModel {
                                             'TASK.LASTUPDATED',
                                             'TASK.ADDEDBY',
                                             'TASK.ASSIGNEDTO',
+                                            'TASK.ISDEL'
                                         ]).from('TASK')
+                                        .where('TASK.ISDEL', 0)
                                         .whereRaw(where_query, whereData)
                                         .orderBy(parseInt(params.order['0'].column) + 2, params.order['0'].dir)
                                         .limit(page_length)
@@ -95,7 +98,7 @@ module.exports = class TaskModel {
             "TASK.ASSIGNEDTO":   userData.assignedto,
             "TASK.PRIORITY":   userData.priority,
             "TASK.STATUS":  userData.status,
-            "TASK.ADDEDBY": "FAIZAN",
+            "TASK.ADDEDBY": "Faizan",
             "TASK.CREATEDAT": moment().format('YYYY-MM-DD hh:mm:ss'),
         };
     
@@ -111,33 +114,84 @@ module.exports = class TaskModel {
         });
     }
 
- //Get User Details
-
- getTaskDetails(id, callback) {
+    //Get User Details
+    getTaskDetails(id, callback) {
      var tid = id;
-     console.log(tid);
-    try {
-        ODB.GetConnection(function(conn) {
-            conn.select([
-                "TASK.TITLE",
-                "TASK.DESCRIPTION",
-                "TASK.ASSIGNEDTO",
-                "TASK.STATUS",
-                "TASK.PRIORITY"
-                ])
-                .from('TASK').where({
-                    'TASK.TID': tid
-                }).then(function(rows) {
-                    if (rows.length > 0) {
-                        return callback(rows[0], true, "Task record exists");
-                    } else {
-                        return callback([], false, "Task record does not exists");
-                    }
-                });
-        });
-    } catch (err) {
-        appErrorLogs.error(err);
-        return callback([], false, "Task record not found");
+        try {
+            ODB.GetConnection(function(conn) {
+                conn.select([
+                    "TASK.TITLE",
+                    "TASK.DESCRIPTION",
+                    "TASK.ASSIGNEDTO",
+                    "TASK.STATUS",
+                    "TASK.PRIORITY"
+                    ])
+                    .from('TASK').where({
+                        'TASK.TID': tid
+                    }).then(function(rows) {
+                        if (rows.length > 0) {
+                            return callback(rows[0], true, "Task record exists");
+                        } else {
+                            return callback([], false, "Task record does not exists");
+                        }
+                    });
+            });
+        } catch (err) {
+            appErrorLogs.error(err);
+            return callback([], false, "Task record not found");
+        }
     }
-}
+    //update Task Details
+    updateTask(formdata, callback) {
+        var taskData = formdata;
+        var values = {
+            "TASK.TITLE": taskData.TITLE,
+            "TASK.DESCRIPTION": taskData.DESCRIPTION,
+            "TASK.PRIORITY": taskData.PRIORITY,
+            "TASK.ASSIGNEDTO": taskData.ASSIGNEDTO,
+            "TASK.STATUS": taskData.STATUS ,
+            "TASK.LASTUPDATED": moment().format('YYYY-MM-DD hh:mm:ss'),
+        };
+        
+        ODB.GetConnection(function(conn) {
+            conn('TASK').where({
+                'TASK.TID': taskData.TID
+            })
+            .update(values)
+            .then(function() {
+                return callback([], true, "Task record updated");
+            }).catch(function(err) {
+                appErrorLogs.error(err);
+                return callback([], false, "Task record not updated");
+
+            });
+        });
+    }
+
+    deleteTask(ID, callback) {
+        var TID = ID;
+        var values = {
+            "TASK.ISDEL": 1,
+        };
+        ODB.GetConnection(function(conn) {
+            conn('TASK').where({
+                'TASK.TID': TID
+            }).update(values).then(function() {
+                return callback({
+                    data: [],
+                    status: true,
+                    msg: "Deleted TASK"
+                });
+            }).catch(function(err) {
+                console.log(err);
+                appErrorLogs.error(err);
+                return callback({
+                    data: [],
+                    status: false,
+                    msg: "Unable To Delete User"
+                });
+
+            });
+        });
+    }
 }

@@ -29,7 +29,7 @@ router.post('/security_check', function(req, res, next) {
 router.get('/tasks',get_data_details, function(req, res, next) {
     var data = req.data_details;
 
-    data.title = "tasks";
+    data.title = "Tasks";
     data.page_id = "home-tasks";
     data.plugins.push("jquery_ui-interactions", "switch", "sticky", "bootbox", "datatables", "validator","select2", "moment");
     data.page_assets.css = true;
@@ -94,4 +94,39 @@ router.get('/getTaskDetails', function(req, res, next) {
     });
 });
 
+
+//update Task details
+router.post('/updateTask', function(req, res, next) {
+    var errors = {};
+    var data = {};
+    var formData = {};
+
+        formData.TID = req.body.TID;
+        formData.TITLE  = req.body.TITLE.trim();
+        formData.DESCRIPTION  = req.body.DESCRIPTION.trim();
+        formData.PRIORITY = req.body.PRIORITY.trim();
+        formData.ASSIGNEDTO   = req.body.ASSIGNEDTO.trim();
+        formData.STATUS = req.body.STATUS;
+        
+        TaskModelModelObj.updateTask(formData, function(result, status) {
+            if (status == true) {
+                data.success = true;
+                res.send(JSON.stringify(data));
+            } else {
+                data.errors = errors;
+                data.success = false;
+                res.send(JSON.stringify(data));
+            }
+        });
+    
+
+});
+//Delete Task
+router.post('/deleteTask', function(req, res, next) {
+    var TID= req.body.tid;
+    TaskModelModelObj.deleteTask(TID, function(result) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(result);
+    });
+});
 module.exports = router;

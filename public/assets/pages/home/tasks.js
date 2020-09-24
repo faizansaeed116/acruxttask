@@ -1,5 +1,13 @@
 $( document ).ready(function() {
-    $('#search_user').on('click', function () {
+  function FormatDate(DATE, CURR_FORMAT = "YYYY-MM-DDTHH:mm:ss.sssZ") {
+    if (DATE == "" || DATE == null || DATE == undefined) {
+        return "";
+    } else {
+        let date = moment(DATE, CURR_FORMAT).format("DD-MM-YYYY");
+        return date;
+    }
+  }
+    $('#search_Task').on('click', function () {
           
       $('#DataTables_Table_0').DataTable().ajax.reload(null, false);
       
@@ -36,8 +44,21 @@ $( document ).ready(function() {
             {   title: "Description",   data: "DESCRIPTION"},
             {   title: "Priority",   data: "PRIORITY"},
             {   title: "Status",   data: "STATUS"},
-            {   title: "CreatedAt",   data: "CREATEDAT"},
-            {   title: "Last Updated",   data: "LASTUPDATED"},
+            {   
+              title: "CreatedAt",   
+              render: function (row, type, val, meta) {
+                var CreatedAt ='';
+                CreatedAt += FormatDate(val.CREATEDAT);
+                return CreatedAt;
+              }
+            },
+            {   title: "Last Updated",   
+                render: function (row, type, val, meta) {
+                  var LastUpdated ='';
+                  LastUpdated += FormatDate(val.LASTUPDATED);
+                  return LastUpdated;
+                }
+            },
             {   title: "Added By",   data: "ADDEDBY"},
             {   title: "Assigned to",   data: "ASSIGNEDTO"},
             {
@@ -47,7 +68,7 @@ $( document ).ready(function() {
                   render: function (row, type, val, meta) {
                     
                   return `<div class="list-icons">
-                  <a href="#"  class="list-icons-item text-primary-600 edit_user" onclick="getTask(this)" id="edit_Task" data-toggle="modal" data-target="#editTask" data-backdrop="static" data-keyboard="false">
+                  <a href="#"  class="list-icons-item text-primary-600 edit_Task" onclick="getTask(this)" id="edit_Task" data-toggle="modal" data-target="#editTask" data-backdrop="static" data-keyboard="false">
                   <i class="icon-pencil7"></i></a>
                   <a href="#"  class="list-icons-item text-danger-600" onClick="deleteTask(this)" id="deletetask">
                   <i class="icon-trash"></i></a>
@@ -105,7 +126,7 @@ $( document ).ready(function() {
         });
         var taskData = {
           title :        $("#title").val(),
-          requirement :  $("#requirement").val(),
+          requirement :  $("#description").val(),
           assignedto :   $("#assignedto option:selected" ).text(),
           priority :     $("#priority option:selected" ).text(),
           status :       $("#status option:selected" ).text()
@@ -148,12 +169,54 @@ $( document ).ready(function() {
   
       });
   
+    //Update Task Details
       
+    $("#updateTask").on('click', function(e) {
+  
+      e.preventDefault();
+      var taskData = {
+        TID :         $("#e_tid").val(),
+        TITLE :      $("#e_title").val(),
+        DESCRIPTION : $("#e_description").val(),
+        PRIORITY :    $("#e_priority option:selected" ).text(),
+        ASSIGNEDTO :  $("#e_assignedto option:selected" ).text(),
+        STATUS :      $("#e_status option:selected" ).text()
+      };
+      $(".error").remove();
+      if ($.trim(taskData.TITLE).length == 0) {
+        $('#e_title').after('<span class="error">Full Name is required</span>'); 
+      }else{
+          // DO POST
+        $.ajax({
+          type : 'POST',
+          url : '/updateTask',
+          data : taskData,
+          dataType: 'json',
+          success : function(data) {
+            
+              $("#edit_form").trigger("reset");
+              $(".error").remove();
+              $("#editTask").modal("hide");
+              $('#DataTables_Table_0').DataTable().ajax.reload(null, false);
+              bootbox.alert({
+                title: 'Task Update!',
+                message: 'Task has been updated Successfuly.'
+              });
+            
+          },
+          error : function(e) {
+            alert("Error!", e);
+            console.log("ERROR: ", e);
+          }
+      });
+    }
+
+    });    
   
   
   } );
 
-  //get user details
+  //get Task details
 function getTask(e) {
   var row_iid = $(e).closest('tr').attr("id");
   $('#e_status').select2({
@@ -170,7 +233,7 @@ function getTask(e) {
       success: function (result) {
      
           $("input[name='e_title']").val(result.TITLE);
-          $("textarea[name='e_requirement']").val(result.DESCRIPTION);
+          $("textarea[name='e_description']").val(result.DESCRIPTION);
           
           $("#e_status").val(result.STATUS);
           $('#e_status').select2().trigger('change');
@@ -185,3 +248,65 @@ function getTask(e) {
       }
   });
 }
+
+//delete Task
+function deleteTask(e) {
+  var row_id = $(e).closest('tr').attr("id");
+
+  bootbox.confirm({
+    title: 'Confirm dialog',
+    message: 'Are you sure you want to delete the Task',
+    buttons: {
+        confirm: {
+            label: 'Yes',
+            className: 'btn-danger'
+        },
+        cancel: {
+            label: 'Cancel',
+            className: 'btn-link'
+        }
+    },
+    callback: function (result) {
+
+        if (result == true) {
+           // showLoading("body");
+
+            var taskData = {
+                tid: row_id
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: 'deleteTask',
+                data: taskData,
+                dataType: 'json',
+                encode: true
+            }).done(function (res) {
+                if (res.status == 1) {
+                    $('.datatable-generated').DataTable().ajax.reload(null, false);
+                    bootbox.alert({
+                        title: 'Deleted',
+                        message: 'Task Deleted Successfully'
+                    });
+                } else {
+                    bootbox.alert({
+                        title: 'Error',
+                        message: 'Unable To Delete Task'
+                    });
+                }
+            });
+        } 
+    }
+});
+}
+//Close Form Button
+$("#closeForm").on('click', function(e) {
+  $("#add_form").trigger("reset");
+  $(".error").remove();
+
+});
+
+$("#closeEditForm").on('click', function(e) {
+  $(".error").remove();
+
+});
