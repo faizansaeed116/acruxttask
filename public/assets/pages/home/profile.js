@@ -58,7 +58,6 @@ $( document ).ready(function() {
 
 
 
-    $('#getUserTask').on('click', function () {
         $('.datatable-tasks').DataTable({
             dom: '<"rt<"bottom"ipl><"clear">',
             ajax: {
@@ -110,7 +109,6 @@ $( document ).ready(function() {
                 ],
   
         });
-    });
 
         //Update Task Details
         $("#updateTask").on('click', function(e) {
