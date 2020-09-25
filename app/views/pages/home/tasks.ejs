@@ -22,7 +22,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="card-body collapse">
+                            <div class="card-body collapse">
                                 <form action="#">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -30,20 +30,23 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>First Name:</label>
-                                                            <input type="text" name="s_fname" id="s_fname" placeholder="First Name"
-                                                                class="form-control" maxlength="35">
+                                                            <label class="col-form-label">Title:</label>
+                                                            <input type="text" id="s_title" name="s_title" class="form-control" placeholder="Enter Title">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Last Name:</label>
-                                                            <input type="text" name="s_lname" id="s_lname" placeholder="Last Name"
-                                                                class="form-control" maxlength="35">
+                                                            <label class="col-form-label col-form-label-sm text-right">Status:</label>
+                                                            <select placeholder="Select" id="s_status" name="s_status" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                                <option value="">Select</option>
+                                                                <option value="Open">Open</option>
+                                                                <option value="On hold">On hold</option>
+                                                                <option value="Resolved">Resolved</option>
+                                                                <option value="Closed">Closed</option>
+                                                            </select> 
                                                         </div>
                                                     </div>
-                                                </div>
                                             </fieldset>
                                         </div>
 
@@ -52,17 +55,17 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group" id="s_email_group">
-                                                            <label>Email:</label>
-                                                            <input type="email" name="s_email" id="s_email" placeholder="Email" class="form-control" maxlength="50">
-                                                            <span class="help-block"></span>
+                                                            <label class=" col-form-label col-form-label-sm text-right">Priority:</label>
+                                                            <select placeholder="Select" id="s_priority" name="s_priority" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                                <option value="">Select</option>
+                                                                <option value="Low">Low</option>
+                                                                <option value="Normal">Normal</option>
+                                                                <option value="High">High</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>City:</label>
-                                                            <input type="text" name="s_city" id="s_city" placeholder="City"
-                                                                class="form-control" maxlength="35">
-                                                        </div>
+                                                        <button type="button" id="search_Task" class="btn btn-primary"> Search<i class="icon-paperplane ml-2"></i></button>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -71,11 +74,10 @@
                                     </div>
 
                                     <div class="text-right">
-                                        <button type="button" id="search_task" class="btn btn-primary"> Search<i
-                                                class="icon-paperplane ml-2"></i></button>
+                                       
                                     </div>
                                 </form>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>

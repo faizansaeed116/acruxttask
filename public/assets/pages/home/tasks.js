@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  //DATE TIME FORMAT
   function FormatDate(DATE, CURR_FORMAT = "YYYY-MM-DDTHH:mm:ss.sssZ") {
     if (DATE == "" || DATE == null || DATE == undefined) {
         return "";
@@ -7,6 +8,14 @@ $( document ).ready(function() {
         return date;
     }
   }
+
+  //SELECT2 INIT
+  $('#s_status').select2({
+    placeholder: "Select"
+  });
+  $('#s_priority').select2({
+    placeholder: "Select"
+  });
     $('#search_Task').on('click', function () {
           
       $('#DataTables_Table_0').DataTable().ajax.reload(null, false);
@@ -19,7 +28,10 @@ $( document ).ready(function() {
           type: 'POST',
           data: function (data) {
             var search_val = {
-                
+              'TITLE':    $('#s_title').val(),
+              'PRIORITY': $("#s_priority option:selected" ).val(),
+              'STATUS' :  $("#s_status option:selected" ).val()
+
             };
             data.search = search_val;
             return data;
@@ -127,10 +139,11 @@ $( document ).ready(function() {
         var taskData = {
           title :        $("#title").val(),
           requirement :  $("#description").val(),
-          assignedto :   $("#assignedto option:selected" ).text(),
+          assignedto :   $("#assignedto option:selected" ).val(),
           priority :     $("#priority option:selected" ).text(),
           status :       $("#status option:selected" ).text()
         };
+        console.log(taskData.assignedto);
         $(".error").remove();
         if ($.trim(taskData.title).length == 0) {
           $('#title').after('<span class="error">Task Title is required</span>'); 
@@ -170,7 +183,6 @@ $( document ).ready(function() {
       });
   
     //Update Task Details
-      
     $("#updateTask").on('click', function(e) {
   
       e.preventDefault();
@@ -179,7 +191,7 @@ $( document ).ready(function() {
         TITLE :      $("#e_title").val(),
         DESCRIPTION : $("#e_description").val(),
         PRIORITY :    $("#e_priority option:selected" ).text(),
-        ASSIGNEDTO :  $("#e_assignedto option:selected" ).text(),
+        ASSIGNEDTO :  $("#e_assignedto option:selected" ).val(),
         STATUS :      $("#e_status option:selected" ).text()
       };
       $(".error").remove();

@@ -6,7 +6,24 @@ module.exports = class TaskModel {
             ODB.GetConnection(function(conn) {
                 var whereData = [];
                 var where_query = '';
-                
+                if (params.search['TITLE'] != '') {
+                    where_query = " TASK.TITLE LIKE ? ";
+                    whereData.push("%" + params.search['TITLE'] + "%");
+                }
+                if (params.search['STATUS'] != '') {
+                    if (where_query != '')
+                        where_query += " OR TASK.STATUS LIKE ? ";
+                    else
+                        where_query += " TASK.STATUS LIKE ? ";
+                    whereData.push("%" + params.search['STATUS'] + "%");
+                }
+                if (params.search['PRIORITY'] != '') {
+                    if (where_query != '')
+                        where_query += " OR TASK.PRIORITY LIKE ? ";
+                    else
+                        where_query += " TASK.PRIORITY LIKE ? ";
+                    whereData.push("%" + params.search['PRIORITY'] + "%");
+                }
                 
                 conn.count('TASK.TID as count').from('TASK')
                 .where('TASK.ISDEL', 0)
@@ -32,9 +49,11 @@ module.exports = class TaskModel {
                                             'TASK.CREATEDAT',
                                             'TASK.LASTUPDATED',
                                             'TASK.ADDEDBY',
-                                            'TASK.ASSIGNEDTO',
+                                            'USERS.FNAME as ASSIGNEDTO',
                                             'TASK.ISDEL'
-                                        ]).from('TASK')
+                                        ])
+                                        .from('TASK')
+                                        .join('USERS', 'TASK.UID', '=', 'USERS.ID')
                                         .where('TASK.ISDEL', 0)
                                         .whereRaw(where_query, whereData)
                                         .orderBy(parseInt(params.order['0'].column) + 2, params.order['0'].dir)
@@ -95,7 +114,7 @@ module.exports = class TaskModel {
         var values = {
             "TASK.TITLE":   userData.title,
             "TASK.DESCRIPTION":   userData.requirement,
-            "TASK.ASSIGNEDTO":   userData.assignedto,
+            "TASK.UID":   userData.assignedto,
             "TASK.PRIORITY":   userData.priority,
             "TASK.STATUS":  userData.status,
             "TASK.ADDEDBY": "Faizan",
@@ -122,7 +141,7 @@ module.exports = class TaskModel {
                 conn.select([
                     "TASK.TITLE",
                     "TASK.DESCRIPTION",
-                    "TASK.ASSIGNEDTO",
+                    "TASK.UID as ASSIGNEDTO",
                     "TASK.STATUS",
                     "TASK.PRIORITY"
                     ])
@@ -148,7 +167,7 @@ module.exports = class TaskModel {
             "TASK.TITLE": taskData.TITLE,
             "TASK.DESCRIPTION": taskData.DESCRIPTION,
             "TASK.PRIORITY": taskData.PRIORITY,
-            "TASK.ASSIGNEDTO": taskData.ASSIGNEDTO,
+            "TASK.UID": taskData.ASSIGNEDTO,
             "TASK.STATUS": taskData.STATUS ,
             "TASK.LASTUPDATED": moment().format('YYYY-MM-DD hh:mm:ss'),
         };

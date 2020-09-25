@@ -147,61 +147,47 @@
             <!-- Right content -->
             <div class="tab-content w-100">
                 <div class="tab-pane fade active show" id="profile">
-
-                    <!-- Sales stats -->
                     <div class="card">
-                            <!-- Mixing multiple navbars color -->
-						<div class="mb-4">
-							<div class="navbar navbar-expand-xl navbar-dark bg-teal-400 navbar-component mb-0 rounded-top">
-								<div class="text-center d-xl-none w-100">
-									<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-demo5-mobile">
-										<i class="icon-unfold mr-2"></i>
-										Actions
-									</button>
-								</div>
-
-								<div class="navbar-collapse collapse" id="navbar-demo5-mobile">
-									<ul class="nav navbar-nav">
-										<li class="nav-item">
-											<a href="#" class="navbar-nav-link active">Activity</a>
-										</li>
-										<li class="nav-item">
-											<a href="#" class="navbar-nav-link">Notes</a>
-										</li>
-										<li class="nav-item">
-											<a href="#" class="navbar-nav-link">Emails</a>
-                                        </li>
-                                        <li class="nav-item">
-											<a href="#" class="navbar-nav-link">Calls</a>
-                                        </li>
-                                        <li class="nav-item">
-											<a href="#" class="navbar-nav-link">Tasks</a>
-                                        </li>
-                                        <li class="nav-item">
-											<a href="#" class="navbar-nav-link">Meetings</a>
-										</li>
-									</ul>
-
-									<ul class="navbar-nav ml-xl-auto">
-										<li class="nav-item">
-											<!-- <span><i class="icon-history mr-2 text-success"></i> Updated  hours ago</span> -->
-                                             <a class="list-icons-item" data-action="reload"></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-
-						</div>
-						<!-- /mixing multiple navbars color -->
-                            
+                        <div class="card-header header-elements-inline">
+                            <!-- <h6 class="card-title">Bordered justified</h6>
+                            <div class="header-elements">
+                                <div class="list-icons">
+                                    <a class="list-icons-item" data-action="collapse"></a>
+                                    <a class="list-icons-item" data-action="reload"></a>
+                                    <a class="list-icons-item" data-action="remove"></a>
+                                </div>
+                            </div> -->
+                        </div>
 
                         <div class="card-body">
-                            <div class="chart-container">
+                            <ul class="nav nav-tabs nav-tabs-highlight nav-justified mb-0">
+                                <li class="nav-item"><a href="#bordered-justified-tab1" class="nav-link active" data-toggle="tab">Activities</a></li>
+                                <li class="nav-item"><a href="#bordered-justified-tab2" class="nav-link" data-toggle="tab">Notes</a></li>
+                                <li class="nav-item"><a href="#bordered-justified-tab3" class="nav-link" data-toggle="tab">Tasks</a></li>
+                                <li class="nav-item"><a href="#bordered-justified-tab4" class="nav-link" data-toggle="tab">Meetings</a></li>
+                            </ul>
+
+                            <div class="tab-content card card-body border-light border-top-0 rounded-top-0 shadow-0 mb-0">
+                                <div class="tab-pane fade show active" id="bordered-justified-tab1">
+                                    Activities
+                                </div>
+
+                                <div class="tab-pane fade" id="bordered-justified-tab2">
+                                   Notes
+                                </div>
+
+                                <div class="tab-pane fade" id="bordered-justified-tab3">
+                                    <table class="table datatable-tasks table-bordered table-striped table-xs table-head-primary" style="width:100%">
+         
+                                </div>
+
+                                <div class="tab-pane fade" id="bordered-justified-tab4">
+                                   Meetings
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /sales stats -->
-
+                </div>
             </div>
             <!-- /right content -->
 
