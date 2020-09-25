@@ -39,7 +39,7 @@ router.get('/tasks',get_data_details, function(req, res, next) {
     res.render('index', data);
 });
 
-//Get Taks List
+//Get Task List
 router.post('/getTasksList', function(req, res, next) {
     //var queryString = url.parse(req.url, true);
     TaskModelModelObj.getTasksList(req.body, function(rows_data) {

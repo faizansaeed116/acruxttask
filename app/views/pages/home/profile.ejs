@@ -163,7 +163,7 @@
                             <ul class="nav nav-tabs nav-tabs-highlight nav-justified mb-0">
                                 <li class="nav-item"><a href="#bordered-justified-tab1" class="nav-link active" data-toggle="tab">Activities</a></li>
                                 <li class="nav-item"><a href="#bordered-justified-tab2" class="nav-link" data-toggle="tab">Notes</a></li>
-                                <li class="nav-item"><a href="#bordered-justified-tab3" class="nav-link" data-toggle="tab">Tasks</a></li>
+                                <li class="nav-item"><a href="#bordered-justified-tab3" id="getUserTask" class="nav-link" data-toggle="tab">Tasks</a></li>
                                 <li class="nav-item"><a href="#bordered-justified-tab4" class="nav-link" data-toggle="tab">Meetings</a></li>
                             </ul>
 
@@ -200,3 +200,120 @@
 
 </div>
 <!-- /main content -->
+
+
+<!-- Add Edit Task Modal -->
+<div class="modal fade" data-spy="scroll" id="editTask">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #03a9f4;">
+                <h4 class="modal-title">Edit Task!</h4>
+<!--                     
+                <button type="button" class="close" data-dismiss="modal">X</button> -->
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-start flex-column flex-md-row">
+                    <div class="col">
+                        <form class="task-form" name="edit_form" id="edit_form" action="" method="POST" autocomplete="off">
+                            <input type="hidden" name="e_tid"  id="e_tid">
+                            <div class="card">
+                                <div class="card-header header-elements-inline">
+                                    <h5 class="card-title">Task Details</h5>
+                                    <div class="header-elements">
+                                        <div class="list-icons">
+                                            <a class="list-icons-item" data-action="collapse"></a>
+                                            <!-- <a class="list-icons-item" data-action="reload"></a>
+                                            <a class="list-icons-item" data-action="remove"></a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Title:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" id="e_title" name="e_title" class="form-control" placeholder="Enter Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Description:</label>
+                                                <div class="col-lg-10">
+                                                    <textarea rows="5" cols="5" id="e_description" name="e_description" class="form-control" placeholder="Enter Requirement"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label col-form-label-sm text-right">Status:</label>
+                                                <div class="col-lg-10">
+                                                    <select placeholder="Select" id="e_status" name="e_status" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                        <option value="Open">Open</option>
+                                                        <option value="On hold">On hold</option>
+                                                        <option value="Resolved">Resolved</option>
+                                                        <option value="Closed">Closed</option>
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label col-form-label-sm text-right">Assigned To:</label>
+                                                <div class="col-lg-9">
+                                                    <select placeholder="Select" id="e_assignedto" name="e_assignedto" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">    
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label col-form-label-sm text-right">Priority:</label>
+                                                <div class="col-lg-10">
+                                                    <select placeholder="Select" id="e_priority" name="e_priority" class="form-control form-control-select2" data-minimum-results-for-search="Infinity">
+                                                        <option value="Low">Low</option>
+                                                        <option value="Normal">Normal</option>
+                                                        <option value="High">High</option>
+
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">   
+                                            <!-- <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Your avatar:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="file" class="form-input-styled" data-fouc>
+                                                    <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                                </div>
+                                            </div>
+                                            -->
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>        
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn bg-primary" id="updateTask" >Update</button>
+                <button type="button" class="btn bg-slate-400" id="closeeditForm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
