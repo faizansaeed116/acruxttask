@@ -95,6 +95,8 @@ $( document ).ready(function() {
         usercompany :  $("#usercompany").val(),
         usertitle :    $("#usertitle").val(),
         userrole :     $("#userrole").val(),
+        userpass :     $("#userpass").val(),
+        confirm_userpass :     $("#confirm_userpass").val(),
       };
       $(".error").remove();
       if ($.trim(userData.firstname).length == 0) {
@@ -118,6 +120,17 @@ $( document ).ready(function() {
 
       if ($.trim(userData.usercompany).length == 0) {
         $('#usercompany').after('<span class="error">Address is required</span>');
+      }
+      if ($.trim(userData.userpass).length = 0) {
+        $('#userpass').after('<span class="error">Password is required</span>');
+      }
+      if ($.trim(userData.userpass).length <= 7) {
+        $('#userpass').after('<span class="error">Password should be atleast 8 character</span>');
+      }
+      if ($.trim(userData.confirm_userpass).length == 0) {
+        $('#confirm_userpass').after('<span class="error">Confirm Password is required</span>');
+      }else if ($.trim(userData.confirm_userpass) !== $.trim(userData.userpass)) {
+        $('#confirm_userpass').after('<span class="error">Pssword Confirmation is not match with Password input</span>');
       }else{
          // DO POST
         $.ajax({
@@ -145,6 +158,7 @@ $( document ).ready(function() {
               if (data.errors.useremail) {
                   $('#useremail').after('<span class="error">'+data.errors.useremail+'</span>');
               }
+              
             }else{
               
               $("#add_form").trigger("reset");
@@ -186,6 +200,8 @@ $( document ).ready(function() {
         usercompany :  $("#e_usercompany").val(),
         usertitle :    $("#e_usertitle").val(),
         userrole :     $("#e_userrole").val(),
+        userpass :     $("#e_userpass").val(),
+        confirm_userpass :     $("#e_confirm_userpass").val(),
       };
       $(".error").remove();
       if ($.trim(userData.firstname).length == 0) {
@@ -205,50 +221,62 @@ $( document ).ready(function() {
       }
       if ($.trim(userData.usercompany).length == 0) {
         $('#e_usercompany').after('<span class="error">Address is required</span>');
-      }else{
-         // DO POST
-        $.ajax({
-          type : 'POST',
-          url : '/updateUser',
-          data : userData,
-          dataType: 'json',
-          success : function(data) {
-            if (!data.success) {
-              if (data.errors.firstname) {
-                $('#e_firstname').after('<span class="error">'+data.errors.firstname+'</span>');
-              }
-              if (data.errors.middlename) {
-                $('#e_middlename').after('<span class="error">'+data.errors.middlename+'</span>');
-              }
-              if (data.errors.lastname) {
-                $('#e_lastname').after('<span class="error">'+data.errors.lastname+'</span>');
-              }
-              if (data.errors.userphone) {
-                $('#e_userphone').after('<span class="error">'+data.errors.userphone+'</span>');
-              }
-              if (data.errors.useraddress) {
-                $('#e_useraddress').after('<span class="error">'+data.errors.useraddress+'</span>');
-              }
-              if (data.errors.useremail) {
-                $('#e_useremail').after('<span class="error">'+data.errors.useremail+'</span>');
-              }
-            }else{
-              $("#add_form").trigger("reset");
-              $(".error").remove();
-              $("#editUser").modal("hide");
-              $('#DataTables_Table_0').DataTable().ajax.reload(null, false);
-              bootbox.alert({
-                title: 'User Update!',
-                message: 'User has been updated Successfuly.'
-              });
-            }
-          },
-          error : function(e) {
-            alert("Error!", e);
-            console.log("ERROR: ", e);
-          }
-      });
-    }
+      }
+      if ($.trim(userData.userpass).length > 0) {
+        if ($.trim(userData.userpass).length <= 7) {
+          $('#e_userpass').after('<span class="error">Password should be atleast 8 character</span>');
+        }
+        if ($.trim(userData.confirm_userpass).length == 0) {
+          $('#e_confirm_userpass').after('<span class="error">Confirm Password is required</span>');
+        }else if ($.trim(userData.confirm_userpass) !== $.trim(userData.userpass)) {
+          $('#e_confirm_userpass').after('<span class="error">Pssword Confirmation is not match with Password input</span>');
+        }else{
+          // DO POST
+         $.ajax({
+           type : 'POST',
+           url : '/updateUser',
+           data : userData,
+           dataType: 'json',
+           success : function(data) {
+             if (!data.success) {
+               if (data.errors.firstname) {
+                 $('#e_firstname').after('<span class="error">'+data.errors.firstname+'</span>');
+               }
+               if (data.errors.middlename) {
+                 $('#e_middlename').after('<span class="error">'+data.errors.middlename+'</span>');
+               }
+               if (data.errors.lastname) {
+                 $('#e_lastname').after('<span class="error">'+data.errors.lastname+'</span>');
+               }
+               if (data.errors.userphone) {
+                 $('#e_userphone').after('<span class="error">'+data.errors.userphone+'</span>');
+               }
+               if (data.errors.useraddress) {
+                 $('#e_useraddress').after('<span class="error">'+data.errors.useraddress+'</span>');
+               }
+               if (data.errors.useremail) {
+                 $('#e_useremail').after('<span class="error">'+data.errors.useremail+'</span>');
+               }
+               
+             }else{
+               $("#edit_form").trigger("reset");
+               $(".error").remove();
+               $("#editUser").modal("hide");
+               $('#DataTables_Table_0').DataTable().ajax.reload(null, false);
+               bootbox.alert({
+                 title: 'User Updated!',
+                 message: 'User has been updated Successfuly.'
+               });
+             }
+           },
+           error : function(e) {
+             alert("Error!", e);
+             console.log("ERROR: ", e);
+           }
+       });
+     }
+
+      }
 
     });
 
@@ -353,5 +381,5 @@ $("#closeForm").on('click', function(e) {
 
 $("#closeEditForm").on('click', function(e) {
   $(".error").remove();
-
+  $("#edit_form").trigger("reset");
 });

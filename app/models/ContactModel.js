@@ -163,7 +163,9 @@ module.exports = class ContactModel {
             "USERS.CITY":    userData.usercity,
             "USERS.COMPANY": userData.usercompany,
             "USERS.TITLE":   userData.usertitle,
-            "USERS.ROLE":    userData.userrole
+            "USERS.ROLE":    userData.userrole,
+            "USERS.PASSWORD":    userData.userpass
+
         };
 
         ODB.GetConnection(function(conn) {
@@ -226,7 +228,8 @@ module.exports = class ContactModel {
             "USERS.CITY": userData.usercity,
             "USERS.COMPANY": userData.usercompany,
             "USERS.TITLE": userData.usertitle,
-            "USERS.ROLE": userData.userrole
+            "USERS.ROLE": userData.userrole,
+            "USERS.PASSWORD": userData.userpass
         };
        
         ODB.GetConnection(function(conn) {

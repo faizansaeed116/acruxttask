@@ -100,6 +100,8 @@ router.post('/adduser', function(req, res, next) {
                     formData.usercompany= req.body.usercompany.trim();
                     formData.usertitle  = req.body.usertitle.trim();
                     formData.userrole   = req.body.userrole.trim();
+                    formData.userpass   = req.body.userpass.trim();
+                    formData.confirm_userpass   = req.body.confirm_userpass.trim();
                     ContactModelObj.createUser(formData, function(result, status) {
                         if (status == true) {
                             data.success = true;
@@ -184,6 +186,8 @@ router.post('/updateUser', function(req, res, next) {
                     formData.usercompany= req.body.usercompany.trim();
                     formData.usertitle  = req.body.usertitle.trim();
                     formData.userrole   = req.body.userrole.trim();
+                    formData.userpass   = req.body.userpass.trim();
+                    
                     ContactModelObj.updateUser(formData, function(result, status) {
                         if (status == true) {
                             data.success = true;
