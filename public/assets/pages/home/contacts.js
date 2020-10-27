@@ -95,6 +95,7 @@ $( document ).ready(function() {
         usercompany :  $("#usercompany").val(),
         usertitle :    $("#usertitle").val(),
         userrole :     $("#userrole").val(),
+        username :     $("#username").val(),
         userpass :     $("#userpass").val(),
         confirm_userpass :     $("#confirm_userpass").val(),
       };
@@ -117,7 +118,9 @@ $( document ).ready(function() {
       if ($.trim(userData.useraddress).length == 0) {
         $('#useraddress').after('<span class="error">Address is required</span>');
       }
-
+      if ($.trim(userData.username).length == 0) {
+        $('#username').after('<span class="error">Username is required</span>');
+      }
       if ($.trim(userData.usercompany).length == 0) {
         $('#usercompany').after('<span class="error">Address is required</span>');
       }
@@ -158,6 +161,9 @@ $( document ).ready(function() {
               if (data.errors.useremail) {
                   $('#useremail').after('<span class="error">'+data.errors.useremail+'</span>');
               }
+              if (data.errors.username) {
+                $('#username').after('<span class="error">'+data.errors.username+'</span>');
+            }
               
             }else{
               
@@ -222,6 +228,7 @@ $( document ).ready(function() {
       if ($.trim(userData.usercompany).length == 0) {
         $('#e_usercompany').after('<span class="error">Address is required</span>');
       }
+      
       if ($.trim(userData.userpass).length > 0) {
         if ($.trim(userData.userpass).length <= 7) {
           $('#e_userpass').after('<span class="error">Password should be atleast 8 character</span>');
@@ -308,6 +315,7 @@ function getUser(e) {
           $("input[name='e_usercompany']").val(result.COMPANY);
           $("input[name='e_usertitle']").val(result.TITLE);
           $("input[name='e_userrole']").val(result.ROLE);
+          $("input[name='e_username']").val(result.USERNAME);
           
           $("input[name='e_iid']").val(row_iid);
       }

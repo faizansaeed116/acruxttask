@@ -59,7 +59,8 @@ module.exports = class ContactModel {
                                             'USERS.CITY',
                                             'USERS.COMPANY',
                                             'USERS.ROLE',
-                                            'USERS.TITLE'
+                                            'USERS.TITLE',
+                                            'USERS.USERNAME'
                                         ]).from('USERS')
                                         .where('USERS.ISDEL', 0)
                                         .whereRaw(where_query, whereData)
@@ -131,7 +132,8 @@ module.exports = class ContactModel {
                     "USERS.CITY",
                     "USERS.COMPANY",
                     "USERS.TITLE",
-                    "USERS.ROLE"
+                    "USERS.ROLE",
+                    'USERS.USERNAME'
                     ])
                     .from('USERS')
                     .where('USERS.ISDEL', 0)
@@ -160,11 +162,12 @@ module.exports = class ContactModel {
             "USERS.GENDER":  userData.usergender,
             "USERS.PHONE":   userData.userphone ,
             "USERS.ADDRESS": userData.useraddress,
+            "USERS.USERNAME":userData.username,
             "USERS.CITY":    userData.usercity,
             "USERS.COMPANY": userData.usercompany,
             "USERS.TITLE":   userData.usertitle,
             "USERS.ROLE":    userData.userrole,
-            "USERS.PASSWORD":    userData.userpass
+            "USERS.PASSWORD":userData.userpass
 
         };
 
@@ -195,7 +198,8 @@ module.exports = class ContactModel {
                     "USERS.CITY",
                     "USERS.COMPANY",
                     "USERS.TITLE",
-                    "USERS.ROLE"
+                    "USERS.ROLE",
+                    'USERS.USERNAME'
                     ])
                     .from('USERS').where({
                         'USERS.ID': id

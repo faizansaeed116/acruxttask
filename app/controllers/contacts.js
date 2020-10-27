@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var validator = require('validator');
+var bcrypt = require('bcryptjs');
+let salt = bcrypt.genSaltSync(10);
 router.get('/', get_data_details, function(req, res, next) {
 
     let data = req.data_details;
@@ -70,9 +72,9 @@ router.post('/adduser', function(req, res, next) {
         if (!validator.matches(req.body.userphone.trim(), /^[0-9]+$/))
             errors.userphone = "Only Numbers are allowed.";
     }
-    if (req.body.useraddress != '' && req.body.useraddress != null) {
-        if (!validator.isAlphanumeric(req.body.useraddress.trim()))
-            errors.useraddress = "Only Alphanumeric characters are allowed.";
+    if (req.body.username != '' && req.body.username != null) {
+        if (!validator.matches(req.body.username.trim(),/^[A-Za-z0-9\s]+$/))
+            errors.username = "Only Alphanumeric characters are allowed.";
     }
     if (req.body.useremail != '' && req.body.useremail != null) {
         if (!validator.isEmail(req.body.useremail))
@@ -100,8 +102,8 @@ router.post('/adduser', function(req, res, next) {
                     formData.usercompany= req.body.usercompany.trim();
                     formData.usertitle  = req.body.usertitle.trim();
                     formData.userrole   = req.body.userrole.trim();
-                    formData.userpass   = req.body.userpass.trim();
-                    formData.confirm_userpass   = req.body.confirm_userpass.trim();
+                    formData.username= req.body.username.trim();
+                    formData.userpass   = bcrypt.hashSync(req.body.userpass.trim(),salt);
                     ContactModelObj.createUser(formData, function(result, status) {
                         if (status == true) {
                             data.success = true;
@@ -155,10 +157,6 @@ router.post('/updateUser', function(req, res, next) {
         if (!validator.matches(req.body.userphone.trim(), /^[0-9]+$/))
             errors.userphone = "Only Numbers are allowed.";
     }
-    if (req.body.useraddress != '' && req.body.useraddress != null) {
-        if (!validator.matches(req.body.useraddress.trim(),/^[A-Za-z0-9\s]+$/))
-            errors.useraddress = "Only Alphanumeric characters are allowed.";
-    }
     if (req.body.useremail != '' && req.body.useremail != null) {
         if (!validator.isEmail(req.body.useremail))
             errors.useremail = "Valid email is required";
@@ -186,7 +184,7 @@ router.post('/updateUser', function(req, res, next) {
                     formData.usercompany= req.body.usercompany.trim();
                     formData.usertitle  = req.body.usertitle.trim();
                     formData.userrole   = req.body.userrole.trim();
-                    formData.userpass   = req.body.userpass.trim();
+                    formData.userpass   = bcrypt.hashSync(req.body.userpass.trim(),salt);
                     
                     ContactModelObj.updateUser(formData, function(result, status) {
                         if (status == true) {
