@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var validator = require('validator');
-var bcrypt = require('bcryptjs');
-let salt = bcrypt.genSaltSync(10);
+var md5 = require('md5');
 router.get('/', get_data_details, function(req, res, next) {
 
     let data = req.data_details;
@@ -39,6 +38,7 @@ router.get('/contacts',get_data_details, function(req, res, next) {
     data.page_assets.js = true;
     data.page_assets.js_module = false;
     data.breadcrumb.push();
+    console.log(req.user);
     res.render('index', data);
 });
 //Get User List
@@ -103,7 +103,7 @@ router.post('/adduser', function(req, res, next) {
                     formData.usertitle  = req.body.usertitle.trim();
                     formData.userrole   = req.body.userrole.trim();
                     formData.username= req.body.username.trim();
-                    formData.userpass   = bcrypt.hashSync(req.body.userpass.trim(),salt);
+                    formData.userpass   = req.body.userpass.trim();
                     ContactModelObj.createUser(formData, function(result, status) {
                         if (status == true) {
                             data.success = true;
@@ -184,7 +184,7 @@ router.post('/updateUser', function(req, res, next) {
                     formData.usercompany= req.body.usercompany.trim();
                     formData.usertitle  = req.body.usertitle.trim();
                     formData.userrole   = req.body.userrole.trim();
-                    formData.userpass   = bcrypt.hashSync(req.body.userpass.trim(),salt);
+                    formData.userpass   = req.body.userpass.trim();
                     
                     ContactModelObj.updateUser(formData, function(result, status) {
                         if (status == true) {

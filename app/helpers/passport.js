@@ -1,13 +1,16 @@
 var LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport');
 var md5 = require('md5');
 
 module.exports = function (passport) {
 
     passport.serializeUser(function (user, done) {
+      
         done(null, user);
     });
 
     passport.deserializeUser(function (user, done) {
+       
         if (!user || (typeof user === 'undefined')) {
             return done("Unknown Error", null);
         } else {
@@ -24,10 +27,10 @@ module.exports = function (passport) {
         },
             function (req, username, password, done) {
 
-                UserModelObj.authenticateUser(username, password, function (user_details, status, message) {
+                ContactModelObj.authenticateUser(username, password, function (user, status, message) {
                     if (status == true) {
-                        user_details.PASSD = null;
-                        return done(null, user_details);
+                        user.PASSWORD = null;
+                        return done(null, user);
                     } else {
                         return done(null, false, req.flash('loginMessage', 'Oops! ' + message));
                     }

@@ -1,6 +1,77 @@
+var md5 = require('md5');
 module.exports = class ContactModel {
 
     constructor() {}
+    //user login authentication
+    authenticateUser(username, password, callback) {
+       
+        
+        try {
+            ODB.GetConnection(function(conn) {
+                conn.select([
+                    'USERS.ID',
+                    'USERS.FNAME',
+                    'USERS.MNAME',
+                    'USERS.LNAME',
+                    'USERS.EMAIL',
+                    'USERS.PHONE',
+                    'USERS.ADDRESS',
+                    'USERS.CITY',
+                    'USERS.COMPANY',
+                    'USERS.ROLE',
+                    'USERS.TITLE',
+                    'USERS.ISDEL',
+                    'USERS.USERNAME',
+                    'USERS.PASSWORD'
+
+                ]).from('USERS').where({
+                    'USERNAME': username
+                }).then(function(rows) {
+                    if (rows.length > 0) {
+                        var user_details = rows[0];
+
+                        var test_password = (md5(password));
+
+                        if (test_password == user_details.PASSWORD) {
+                            if (user_details.ISDEL == 0) {
+                                var values = {
+                                    "LLOGIN": moment().format(_GD.FORMATS.DB.DATETIME),
+                                };
+                                ODB.GetConnection(function(conn) {
+                                    conn('USERS').where({
+                                            'ID': user_details.ID
+                                        })
+                                        .update(values)
+                                        .then(function() {
+                                            return callback(user_details, true, "User Login Successful");
+                                            // return callback([], true, "User last login updated");
+                                        }).catch(function(err) {
+                                            appErrorLogs.error(err);
+                                            return callback([], false, "Unknown Error");
+                                            // return callback([], false, "User last login not updated");
+
+                                        });
+                                });
+
+                            } else {
+                                return callback([], false, "User Inactive");
+                            }
+                        } else {
+                            return callback([], false, "Invalid Password");
+                        }
+                    } else {
+                        return callback([], false, "User not found");
+                    }
+                });
+            });
+        } catch (err) {
+            appErrorLogs.error(err);
+            return callback([], false, "User not found");
+        }
+    }
+
+
+    //get user details
     getContactsList(params, callback) {
         try {
             ODB.GetConnection(function(conn) {
@@ -153,6 +224,7 @@ module.exports = class ContactModel {
 
     //Create new user
     createUser(formdata, callback) {
+        var password = md5(formdata.userpass);
         var userData = formdata;
         var values = {
             "USERS.FNAME":   userData.firstname,
@@ -167,7 +239,7 @@ module.exports = class ContactModel {
             "USERS.COMPANY": userData.usercompany,
             "USERS.TITLE":   userData.usertitle,
             "USERS.ROLE":    userData.userrole,
-            "USERS.PASSWORD":userData.userpass
+            "USERS.PASSWORD":password
 
         };
 
@@ -219,6 +291,7 @@ module.exports = class ContactModel {
 
     //update User Details
     updateUser(formdata, callback) {
+        var password =md5(formdata.userpass);
         
         var userData = formdata;
         var values = {
@@ -233,7 +306,7 @@ module.exports = class ContactModel {
             "USERS.COMPANY": userData.usercompany,
             "USERS.TITLE": userData.usertitle,
             "USERS.ROLE": userData.userrole,
-            "USERS.PASSWORD": userData.userpass
+            "USERS.PASSWORD": password
         };
        
         ODB.GetConnection(function(conn) {

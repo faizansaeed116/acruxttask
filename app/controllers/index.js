@@ -33,7 +33,7 @@ router.post('/security_check', function(req, res, next) {
 router.get('/dashboard', get_data_details, function(req, res, next) {
     var data = req.data_details;
 
-    data.title = "Home";
+    data.title = "Dashboard";
     data.page_id = "home-index";
     data.plugins.push("jquery_ui-interactions", "sticky", "socketio", "bootbox");
     data.page_assets.css = true;

@@ -160,6 +160,7 @@ var indexRouter = require('./app/controllers/index');
 var contactRouter = require('./app/controllers/contacts');
 var profileRouter = require('./app/controllers/profile');
 var tasksRouter = require('./app/controllers/tasks');
+var loginRouter = require('./app/controllers/login');
 
 // Model Files
 var ContactModel = require('./app/models/ContactModel');
@@ -217,6 +218,7 @@ app.use('/', indexRouter);
 app.use('/',contactRouter);
 app.use('/',profileRouter);
 app.use('/',tasksRouter);
+app.use('/',loginRouter);
 
 
 // catch 404 and forward to error handler
